@@ -1,0 +1,5 @@
+<keymap version="1" name="Default copy" parent="$default">
+  <action id="ToggleReadOnlyAttribute">
+    <keyboard-shortcut first-keystroke="ctrl z" />
+  </action>
+</keymap>
