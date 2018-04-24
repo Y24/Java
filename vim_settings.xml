@@ -27,7 +27,8 @@
       <file name="$USER_HOME$/IdeaProjects/pkg/src/netf/InetAddressTest.java" timestamp="1523886929544">
         <mark key="[" line="6" column="29" />
       </file>
-      <file name="$USER_HOME$/IdeaProjects/Puzzle/src/Puzzle/Puzzle.java" timestamp="1524574622078">
+      <file name="$USER_HOME$/IdeaProjects/Puzzle/src/Puzzle/Puzzle.java" timestamp="1524578050662">
+        <mark key="'" line="55" column="50" />
         <mark key="[" line="13" column="23" />
       </file>
       <file name="$USER_HOME$/IdeaProjects/asdfgn/src/sample/Controller.java" timestamp="1523497418526">
@@ -82,7 +83,9 @@
         <mark key="[" line="0" column="0" />
       </file>
     </filemarks>
-    <jumps />
+    <jumps>
+      <jump line="55" column="50" filename="$USER_HOME$/IdeaProjects/Puzzle/src/Puzzle/Puzzle.java" />
+    </jumps>
     <registers>
       <register name="1" type="2">
         <text encoding="base64">cHVibGljIGNsYXNzICBleHRlbmRzIEFwcGxldCBpbXBsZW1lbnRzIFJ1bm5hYmxlIHsKICAgIFN0cmluZyBtc2cgPSAiIEEgU2ltcGxlIE1vdmluZyBCYW5uZXIuIjsKICAgIFRocmVhZCB0ID0gbnVsbDsKICAgIGludCBzdGF0ZTsKICAgIGJvb2xlYW4gc3RvcEZsYWc7Cgo=</text>
