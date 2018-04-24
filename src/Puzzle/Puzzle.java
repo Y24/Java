@@ -19,14 +19,23 @@ public class Puzzle extends Frame implements ActionListener {
      * function you input a length of an array,this method will return an array
      * of number from 1 to len with unsorted.
      */
+    private boolean IsSolvable(Integer[] Arr){
+        int Criterion=0;
+        for(int i=0;i<Sum-1;i++)
+            for(int j=0;j<i;j++)
+                if(Arr[j]>Arr[i])
+                    Criterion++;
+        return Criterion % 2 == 0;
+    }
     private String[] Random(int len) {
         Integer Arr[] = new Integer[len - 1];
         String S[] = new String[len];
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < len - 1; i++)
             list.add(i + 1);
-        Collections.shuffle(list);
-        list.toArray(Arr);
+       do{ Collections.shuffle(list);
+        list.toArray(Arr);}
+        while (!(IsAlreadyWin(Arr)||IsSolvable(Arr)));
         for (int i = 0; i < len - 1; i++)
             S[i] = Arr[i].toString();
         S[len - 1] = " ";
@@ -38,11 +47,21 @@ public class Puzzle extends Frame implements ActionListener {
         MainWindow.setSize(new Dimension(600, 600));
         MainWindow.setTitle("15-square Puzzle");
         MainWindow.setVisible(true);
-    }
 
+    }
+    private boolean IsAlreadyWin(Integer[] text){
+        for(int i=0;i<Sum-1;i++)
+            if(!(text[i]==i+1))
+                return false;
+        return true;
+    }
+private boolean IsWin(){
+     for(int i=0;i<Sum-1;i++)
+        if(!ButtonArr[i].getLabel().equals(""+(i+1) ))
+          return false;
+       return true;
+}
     private Puzzle() {
-        //  addKeyListener(new KeyAdapter() {
-        //});
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -78,6 +97,29 @@ public class Puzzle extends Frame implements ActionListener {
 
 
             }
+        if(IsWin()) {
+            EndUI Win=new EndUI(this);
+            Win.setTitle("Winner!");
+            Win.setSize(400,400);
+            Win.setVisible(true);
+        }
+    }
+}
+class EndUI extends Frame{
+    EndUI(Puzzle P){
+        P.dispose();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        repaint();
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        g.drawString("GameOver!\nYou're the winner!",100,100);
     }
 }
 
