@@ -7,9 +7,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class Puzzle extends Frame implements ActionListener {
-    private final static int n = 4;
+    private  final static int n=2;
     private final static int Sum = n * n;
-    private static int flag = 15;
+    private static int flag = n*n-1;
     private Button[] ButtonArr = new Button[Sum];
     private String[] ButtonName = Random(Sum);
 
@@ -43,11 +43,14 @@ public class Puzzle extends Frame implements ActionListener {
     }
 
     public static void main(String[] argc) {
-        Puzzle MainWindow = new Puzzle();
+       /* Puzzle MainWindow = new Puzzle();
         MainWindow.setSize(new Dimension(600, 600));
         MainWindow.setTitle("15-square Puzzle");
-        MainWindow.setVisible(true);
-
+        MainWindow.setVisible(true);*/
+       BeginUI Begin=new BeginUI();
+       Begin.setTitle("The Begin Page");
+       Begin.setSize(new Dimension(600,600));
+       Begin.setVisible(true);
     }
     private boolean IsAlreadyWin(Integer[] text){
         for(int i=0;i<Sum-1;i++)
@@ -61,7 +64,8 @@ private boolean IsWin(){
           return false;
        return true;
 }
-    private Puzzle() {
+    Puzzle() {
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -100,7 +104,7 @@ private boolean IsWin(){
         if(IsWin()) {
             EndUI Win=new EndUI(this);
             Win.setTitle("Winner!");
-            Win.setSize(400,400);
+            Win.setSize(600,600);
             Win.setVisible(true);
         }
     }
@@ -114,12 +118,47 @@ class EndUI extends Frame{
                 System.exit(0);
             }
         });
-        repaint();
     }
 
     @Override
     public void paint(Graphics g) {
         g.drawString("GameOver!\nYou're the winner!",100,100);
+    }
+
+}
+class BeginUI extends Frame implements ActionListener,ItemListener{
+
+    BeginUI(){
+        setLayout(new GridBagLayout());
+        repaint();
+        Button Begin=new Button("Begin");
+        add(Begin);
+        Begin.addActionListener(this);
+
+        addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        repaint();
+    }
+    @Override
+    public void paint(Graphics g) {
+        g.drawString("GameBegin!\nYou're supposed to be the winner!",100,100);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Puzzle MainWindow = new Puzzle();
+        MainWindow.setSize(new Dimension(600, 600));
+        MainWindow.setTitle("15-square Puzzle");
+        MainWindow.setVisible(true);
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
     }
 }
 
