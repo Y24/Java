@@ -4,14 +4,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Puzzle extends Frame implements ActionListener {
-    private  final static int n=2;
-    private final static int Sum = n * n;
-    private static int flag = n*n-1;
-    private Button[] ButtonArr = new Button[Sum];
-    private String[] ButtonName = Random(Sum);
+    private static int n;
+    private static int Sum ;
+    private static int flag ;
+    private static ArrayList<Button> ButtonArr;
+    private static ArrayList<String> ButtonName;
+    //   private Button[] ButtonArr = new Button[Sum];
+   // private String[] ButtonName = Random(Sum);
 
     /*
      * @para len represents the length of the solution array
@@ -19,26 +20,27 @@ public class Puzzle extends Frame implements ActionListener {
      * function you input a length of an array,this method will return an array
      * of number from 1 to len with unsorted.
      */
-    private boolean IsSolvable(Integer[] Arr){
-        int Criterion=0;
-        for(int i=0;i<Sum-1;i++)
-            for(int j=0;j<i;j++)
-                if(Arr[j]>Arr[i])
+    private boolean IsSolvable(ArrayList<String> Arr) {
+        int Criterion = 0;
+        for (int i = 0; i < Sum - 1; i++)
+            for (int j = 0; j < i; j++)
+                if (Integer.valueOf(Arr.get(j)).intValue() > Integer.valueOf(Arr.get(i)).intValue())
                     Criterion++;
-        return Criterion % 2 == 0;
+        final int flag = Arr.indexOf(Sum + "");
+        if ((Criterion - flag + Sum - 1) % 2 == 0) {
+            Arr.set(flag, " ");
+            return true;
+        }
+        return false;
     }
-    private String[] Random(int len) {
-        Integer Arr[] = new Integer[len - 1];
-        String S[] = new String[len];
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < len - 1; i++)
-            list.add(i + 1);
-       do{ Collections.shuffle(list);
-        list.toArray(Arr);}
-        while (!(IsAlreadyWin(Arr)||IsSolvable(Arr)));
-        for (int i = 0; i < len - 1; i++)
-            S[i] = Arr[i].toString();
-        S[len - 1] = " ";
+    private ArrayList<String> Random(int len) {
+        ArrayList<String> S=new ArrayList<>();
+        for (int i = 0; i < len ; i++)
+            S.add(i + 1+"");
+       do{ Collections.shuffle(S);
+           }
+        while (!(!IsAlreadyWin(S)&&IsSolvable(S)));
+
         return S;
     }
 
@@ -52,48 +54,60 @@ public class Puzzle extends Frame implements ActionListener {
        Begin.setSize(new Dimension(600,600));
        Begin.setVisible(true);
     }
-    private boolean IsAlreadyWin(Integer[] text){
-        for(int i=0;i<Sum-1;i++)
-            if(!(text[i]==i+1))
+    private boolean IsAlreadyWin(ArrayList<String> text){
+        for(int i=0;i<Sum-1;i++) {
+            if(!(Integer.valueOf(text.get(i)).intValue()==i+1))
                 return false;
+        }
         return true;
     }
 private boolean IsWin(){
      for(int i=0;i<Sum-1;i++)
-        if(!ButtonArr[i].getLabel().equals(""+(i+1) ))
+        if(!ButtonArr.get(i).getLabel().equals(""+(i+1) ))
           return false;
        return true;
 }
-    Puzzle() {
-
+    Puzzle(int n) {
+        this.n=n;
+        this.Sum=n*n;
+        ButtonArr= new ArrayList<>();
+        ButtonName = new ArrayList<>();
+        ButtonName =Random(Sum);
+        this.flag= ButtonName.indexOf(" ");
         addWindowListener(new WindowAdapter() {
+
             @Override
+
             public void windowClosing(WindowEvent e) {
+
                 System.exit(0);
+
             }
+
         });
         setLayout(new GridLayout(n, n));
         setFont(new Font("SansSerif", Font.BOLD, 24));
-        for (int i = 0; i < Sum; i++) {
-            ButtonArr[i] = (Button) add(new Button(ButtonName[i]));
-            ButtonArr[i].addActionListener(this);
+        for (int i = 0; i < Sum; i++){
+            Button bak=(Button) add(new Button(ButtonName.get(i)));
+            ButtonArr.add(i, bak);
+            ButtonArr.get(i).addActionListener(this);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         for (int Pressed = 0; Pressed < Sum; Pressed++)
-            if (e.getSource() == ButtonArr[Pressed]) {
+            if (e.getSource() == ButtonArr.get(Pressed)) {
                 if (Pressed / n == flag / n) {
                     if (Pressed - flag == 1 || flag - Pressed == 1) {
-                        ButtonArr[flag].setLabel(ButtonArr[Pressed].getLabel());
-                        ButtonArr[Pressed].setLabel(" ");
+                        ButtonArr.get(flag).setLabel(ButtonArr.get(Pressed).getLabel());
+                        ButtonArr.get(Pressed).setLabel(" ");
                         flag = Pressed;
                     }
                 } else if (Pressed % n == flag % n) {
                     if (Pressed - flag == n || flag - Pressed == n) {
-                        ButtonArr[flag].setLabel(ButtonArr[Pressed].getLabel());
-                        ButtonArr[Pressed].setLabel(" ");
+                        ButtonArr.get(flag).setLabel(ButtonArr.get(Pressed).getLabel());
+                        ButtonArr.get(Pressed).setLabel(" ");
                         flag = Pressed;
 
                     }
@@ -150,7 +164,7 @@ class BeginUI extends Frame implements ActionListener,ItemListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Puzzle MainWindow = new Puzzle();
+        Puzzle MainWindow = new Puzzle(2);
         MainWindow.setSize(new Dimension(600, 600));
         MainWindow.setTitle("15-square Puzzle");
         MainWindow.setVisible(true);
