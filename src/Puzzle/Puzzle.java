@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Puzzle extends Frame implements ActionListener {
-    private final static int n=3;
+    private  final static int n=2;
     private final static int Sum = n * n;
     private static int flag = n*n-1;
     private Button[] ButtonArr = new Button[Sum];
@@ -65,6 +65,7 @@ private boolean IsWin(){
        return true;
 }
     Puzzle() {
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -117,7 +118,6 @@ class EndUI extends Frame{
                 System.exit(0);
             }
         });
-        repaint();
     }
 
     @Override
@@ -126,7 +126,8 @@ class EndUI extends Frame{
     }
 
 }
-class BeginUI extends Frame implements ActionListener{
+class BeginUI extends Frame implements ActionListener,ItemListener{
+
     BeginUI(){
         setLayout(new GridBagLayout());
         repaint();
@@ -153,6 +154,11 @@ class BeginUI extends Frame implements ActionListener{
         MainWindow.setSize(new Dimension(600, 600));
         MainWindow.setTitle("15-square Puzzle");
         MainWindow.setVisible(true);
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
     }
 }
 
