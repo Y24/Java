@@ -27,9 +27,9 @@
       <file name="$USER_HOME$/IdeaProjects/pkg/src/netf/InetAddressTest.java" timestamp="1523886929544">
         <mark key="[" line="6" column="29" />
       </file>
-      <file name="$USER_HOME$/IdeaProjects/Puzzle/src/Puzzle/Puzzle.java" timestamp="1524656109338">
+      <file name="$USER_HOME$/IdeaProjects/Puzzle/src/Puzzle/Puzzle.java" timestamp="1524750902671">
         <mark key="'" line="46" column="50" />
-        <mark key="[" line="67" column="46" />
+        <mark key="[" line="127" column="14" />
         <mark key="]" line="119" column="1" />
         <mark key="." line="119" column="1" />
       </file>
@@ -139,6 +139,9 @@
       </shortcut-conflict>
       <shortcut-conflict owner="ide">
         <text>ctrl pressed F</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed D</text>
       </shortcut-conflict>
     </shortcut-conflicts>
   </component>
