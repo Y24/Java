@@ -75,9 +75,9 @@
       <file name="$USER_HOME$/IdeaProjects/whois/src/whois/Whois.java" timestamp="1523948325603">
         <mark key="[" line="2" column="19" />
       </file>
-      <file name="$USER_HOME$/IdeaProjects/Renju/src/Renju/MyMouseAdapted.java" timestamp="1524823205988">
-        <mark key="'" line="27" column="99" />
-        <mark key="[" line="21" column="46" />
+      <file name="$USER_HOME$/IdeaProjects/Renju/src/Renju/MyMouseAdapted.java" timestamp="1524836866007">
+        <mark key="'" line="32" column="15" />
+        <mark key="[" line="28" column="46" />
       </file>
       <file name="$USER_HOME$/IdeaProjects/AppletFirst/src/Applet.java" timestamp="1522579987302">
         <mark key="[" line="0" column="20" />
@@ -98,6 +98,7 @@
     <jumps>
       <jump line="55" column="50" filename="$USER_HOME$/IdeaProjects/Puzzle/src/Puzzle/Puzzle.java" />
       <jump line="23" column="99" filename="$USER_HOME$/IdeaProjects/Renju/src/Renju/MyMouseAdapted.java" />
+      <jump line="25" column="15" filename="$USER_HOME$/IdeaProjects/Renju/src/Renju/MyMouseAdapted.java" />
     </jumps>
     <registers>
       <register name="1" type="4">
