@@ -84,9 +84,9 @@
       <file name="$USER_HOME$/IdeaProjects/memory/src/memory/memory.java" timestamp="1523442737848">
         <mark key="[" line="40" column="0" />
       </file>
-      <file name="$USER_HOME$/IdeaProjects/Renju/src/Renju/Renju.java" timestamp="1525229983274">
-        <mark key="'" line="126" column="19" />
-        <mark key="[" line="260" column="0" />
+      <file name="$USER_HOME$/IdeaProjects/Renju/src/Renju/Renju.java" timestamp="1525240906194">
+        <mark key="'" line="133" column="20" />
+        <mark key="[" line="91" column="47" />
         <mark key="]" line="260" column="73" />
       </file>
       <file name="$USER_HOME$/IdeaProjects/whois/src/whois/Whois.java" timestamp="1523948325603">
@@ -118,6 +118,7 @@
       <jump line="25" column="15" filename="$USER_HOME$/IdeaProjects/Renju/src/Renju/MyMouseAdapted.java" />
       <jump line="55" column="44" filename="$USER_HOME$/IdeaProjects/Renju/src/Renju/BeginUI.java" />
       <jump line="106" column="19" filename="$USER_HOME$/IdeaProjects/Renju/src/Renju/Renju.java" />
+      <jump line="133" column="20" filename="$USER_HOME$/IdeaProjects/Renju/src/Renju/Renju.java" />
     </jumps>
     <registers>
       <register name="0" type="2">
